@@ -30,9 +30,9 @@ namespace Data.Mapping
 
             builder.Property(prop => prop.Description)
                 .HasMaxLength(2000)
-               .IsRequired()
-               .HasColumnName("Description")
-               .HasColumnType("varchar(2000)");
+                .IsRequired()
+                .HasColumnName("Description")
+                .HasColumnType("varchar(2000)");
 
             builder.Property(prop => prop.Stock)
                 .IsRequired()
@@ -42,7 +42,8 @@ namespace Data.Mapping
             builder.Property(prop => prop.Status)
                 .IsRequired()
                 .HasColumnName("Status")
-                .HasColumnType("bool");
+                .HasColumnType("bool")
+                .HasDefaultValue(true);
             
             builder.Property(prop => prop.Price)
                 .IsRequired()
