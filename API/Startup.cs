@@ -10,14 +10,19 @@ using Service.Services;
 using Domain.Interfaces;
 using Domain.Entities;
 using Data.Repository;
+using Microsoft.AspNetCore.Authentication.Certificate;
 
 namespace Application
 {
     public class Startup
     {
-        public string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-        public void ConfigureServices(IServiceCollection service)
+        private readonly static string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        public static void ConfigureServices(IServiceCollection service)
         {
+            service.AddAuthentication(
+                CertificateAuthenticationDefaults.AuthenticationScheme)
+                .AddCertificate();
+
             service.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins, policy =>
@@ -48,9 +53,11 @@ namespace Application
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
+            
+            app.UseCors(MyAllowSpecificOrigins);
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

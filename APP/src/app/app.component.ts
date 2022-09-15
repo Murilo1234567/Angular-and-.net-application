@@ -48,8 +48,8 @@ export class AppComponent {
     {
       this._toastService.addToast('warning', 'Warning', 'Please enter all product data.')
     }
-    const headers = new HttpHeaders().set('Content-Type', 'application/json')
-    this._httpClient.post('http://localhost:5000/api/Product/', this.productForm.value, {headers}).pipe(takeUntil(this.ngUnsubscribe)).subscribe({
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    this._httpClient.post('http://localhost:5000/api/Product/Create', this.productForm.value, {headers}).pipe(takeUntil(this.ngUnsubscribe)).subscribe({
       next: (response: any) => {
         this._toastService.addToast('success', 'Success', 'Product created successfully.');
       },
@@ -61,7 +61,6 @@ export class AppComponent {
 
   ChangeImageUrl(isSelect: boolean)
   {
-    console.log('ola')
     if (isSelect)
     {
       this.productForm.get('image')?.setValue(this.imageUrl);

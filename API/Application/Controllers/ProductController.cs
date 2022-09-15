@@ -3,11 +3,12 @@ using Domain.Entities;
 using Domain.Interfaces;
 using Service.Validators;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using Microsoft.AspNetCore.Cors;
 
-namespace Layer.Architecture.Application.Controllers
+namespace Application.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
+    [EnableCors("_myAllowSpecificOrigins")]
     [ApiController]
     public class ProductController : ControllerBase
     {
