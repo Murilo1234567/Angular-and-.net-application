@@ -1,0 +1,96 @@
+.insert-card {
+    background-color: white;
+    padding: 30px;
+    width: fit-content;
+    margin-left: 23%;
+    margin-top: 5%;
+    height: fit-content;
+    .full-form {
+        display: flex;
+        justify-content: center;
+        .informations {
+            padding: 0 50px;
+            width: 450px;
+            &:last-child {
+                border-left: 2px solid rgb(245, 245, 245);
+                width: 300px;
+            }
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 10px 0;
+                &.big {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+                &.small {
+                    width: 200px;
+                }
+                .form-control {
+                    border: none;
+                    margin-top: 10px;
+                    border-radius: 5px;
+                    background-color: rgb(245, 245, 245);
+                    height: 40px;
+                    font-size: 20px;
+                    padding: 5px;
+                    &.area {
+                        height: 150px;
+                        overflow-y: scroll;
+                    }
+                }
+                .image-button {
+                    background-color: rgb(245, 245, 245);
+                    width: fit-content;
+                    height: fit-content;
+                    border-radius: 5px;
+                    margin-top: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        max-width: 300px;
+                        max-height: 230px;
+                    }
+                }
+                .buttons {
+                    width: 300px;
+                    display: flex;
+                    align-self: center;
+                    justify-content: space-between;
+                    margin-top: 10px;
+                    button {
+                        border: none;
+                        border-radius: 5px;
+                        padding: 10px;
+                        cursor: pointer;
+                        background-color: rgb(243, 85, 85);
+                        &.select {
+                            background-color: rgb(25, 206, 25);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .end-buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 40%;
+        float: right;
+        margin-top: -45px;
+    }
+    button {
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        &.cancel {
+            background-color: rgb(243, 85, 85);
+        }
+        &.select {
+            background-color: rgb(25, 206, 25);
+        }
+    }
+}

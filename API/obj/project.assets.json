@@ -1754,9 +1754,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\musou\\OneDrive\\Documents\\GitHub\\Angular-and-.net-application\\api\\application.csproj",
-      "projectName": "application",
-      "projectPath": "C:\\Users\\musou\\OneDrive\\Documents\\GitHub\\Angular-and-.net-application\\api\\application.csproj",
+      "projectUniqueName": "C:\\Users\\musou\\OneDrive\\Documents\\GitHub\\Angular-and-.net-application\\api\\api.csproj",
+      "projectName": "api",
+      "projectPath": "C:\\Users\\musou\\OneDrive\\Documents\\GitHub\\Angular-and-.net-application\\api\\api.csproj",
       "packagesPath": "C:\\Users\\musou\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\musou\\OneDrive\\Documents\\GitHub\\Angular-and-.net-application\\api\\obj\\",
       "projectStyle": "PackageReference",
