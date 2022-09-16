@@ -44,4 +44,5 @@
       <button class="cancel" (click)="productForm.reset()">Cancel</button>
       <button class="select" (click)="InsertProduct()">Creat product</button>
     </div>
+    <span class="error" *ngIf="errorMessage">Please fill all <br> the fields of the form.</span>
   </div>

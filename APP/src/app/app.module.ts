@@ -6,10 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MessageService } from 'primeng/api';
-import { ToastService } from 'src/Services/ToastService';
 import { ProductsComponent } from './components/products/products.component';
 import { CreateComponent } from './components/create/create.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -23,9 +22,10 @@ import { CreateComponent } from './components/create/create.component';
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AgGridModule
   ],
-  providers: [MessageService, ToastService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

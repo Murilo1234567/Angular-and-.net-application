@@ -80,18 +80,25 @@
         width: 40%;
         float: right;
         margin-top: -45px;
+        button {
+            z-index: 1;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            &.cancel {
+                background-color: rgb(243, 85, 85);
+            }
+            &.select {
+                background-color: rgb(25, 206, 25);
+            }
+        }
     }
-    button {
-        z-index: 1;
-        border: none;
-        border-radius: 5px;
-        padding: 10px;
-        cursor: pointer;
-        &.cancel {
-            background-color: rgb(243, 85, 85);
-        }
-        &.select {
-            background-color: rgb(25, 206, 25);
-        }
+    .error {
+        font-size: 12px;
+        color: rgb(243, 85, 85);
+        text-align: center;
+        margin-right: 10px;
+        float: right;
     }
 }
