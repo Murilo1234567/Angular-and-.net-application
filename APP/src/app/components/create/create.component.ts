@@ -44,6 +44,8 @@ export class CreateComponent implements OnInit {
     this._httpClient.post('http://localhost:5000/api/Product/Create', this.productForm.value, {headers}).pipe(takeUntil(this.ngUnsubscribe)).subscribe({
       next: (response: any) => {
         this.productForm.reset();
+        this.productForm.get('image')?.setValue('');
+        this.imageUrl = '';
         this.errorMessage = false;
       },
       error: (error: any) => {
