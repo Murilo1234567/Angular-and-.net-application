@@ -40,9 +40,9 @@
       </div>
     </form>
     <div class="end-buttons">
-      <button [routerLink]="'products'">See all products</button>
-      <button class="cancel" (click)="productForm.reset()">Cancel</button>
-      <button class="select" (click)="InsertProduct()">Creat product</button>
+      <button class="cancel" (click)="productForm.reset()">Cancel Create</button>
+      <button [routerLink]="'products'">See All Products</button>
+      <button class="select" (click)="InsertProduct()">Creat Product</button>
     </div>
     <span class="error" *ngIf="errorMessage">Please fill all <br> the fields of the form.</span>
   </div>
