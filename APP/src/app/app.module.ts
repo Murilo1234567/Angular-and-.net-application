@@ -10,7 +10,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { CreateComponent } from './components/create/create.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { DialogModule } from 'primeng/dialog'
+import { DialogModule } from 'primeng/dialog';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DialogModule } from 'primeng/dialog'
     ReactiveFormsModule,
     FormsModule,
     AgGridModule,
-    DialogModule
+    DialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
