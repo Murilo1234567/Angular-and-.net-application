@@ -1,0 +1,15 @@
+<h2>Click on the product line to see its details</h2>
+<div class="get-card">
+  <ag-grid-angular
+    style="width: 1012px; height: 618px;"
+    class="ag-theme-alpine"
+    [columnDefs]="colDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="products$ | async"
+    [animateRows]="true"
+    (cellClicked)="onCellClicked($event.data.id)"
+  ></ag-grid-angular>
+</div>
+<div class="go-back">
+  <span>Or click <a [routerLink]="''">here</a> to create a new product in that list</span>
+</div>

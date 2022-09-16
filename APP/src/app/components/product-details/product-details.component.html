@@ -1,0 +1,70 @@
+<div class="details-card">
+    <div class="details">
+        <div class="informations">
+            <img [src]="productDetails.image">
+        </div>
+        <div class="informations">
+            <h1 style="font-size: 30px;">{{productDetails.name}}</h1>
+            <span class="price">R$ {{productDetails.price}}</span>
+            <div class="details-title">Details:</div>
+            <span class="details">{{productDetails.description}}</span>
+            <div class="buttons">
+                <button class="cancel" (click)="DeleteProduct()">Delete Product</button>
+                <button [routerLink]="'/products'">See All Products</button>
+                <button class="select" (click)="ShowDialogUpdate()">Update Product</button>
+            </div>
+            <span *ngIf="errorMessage" class="error">Was not able to <br>delete product now</span>
+            <span *ngIf="errorMessageUpdate" class="error right">Was not able to <br>update product now</span>
+        </div>
+    </div>
+</div>
+
+<p-dialog [(visible)]="showDialog" header="Update Dialog" [modal]="true" (dismissableMask)="true">
+    <div class="update-card">
+        <form [formGroup]="productDetailsForm">
+            <div class="full-form">
+              <div class="informations">
+                <h2>Main Informations</h2>
+                <div class="form-group">
+                  <label for="name" class="form-label">Name of the Product</label>
+                  <input id="name" class="form-control" type="text" formControlName="name" maxlength="150">
+                </div>
+                <div class="form-group big">
+                  <div class="form-group small">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input id="stock" class="form-control" type="number" formControlName="stock" [min]="0" [max]="100">
+                  </div>
+                  <div class="form-group small">
+                    <label for="price" class="form-label">Price</label>
+                    <input id="price" class="form-control" type="number" formControlName="price" [step]="0.25" [min]="0" [max]="50">
+                  </div>
+                </div>
+                <h2>Adittional Information</h2>
+                <div class="form-group">
+                  <label for="desc" class="form-label">Description of the Product</label>
+                  <textarea id="desc" class="form-control area" (onchange)="productDetailsForm.get('desc')?.setValue(productDetailsForm.get('desc'))" formControlName="description"></textarea>
+                </div>
+              </div>
+              <div class="informations">
+                <h2>Image</h2>
+                <div class="form-group">
+                  <label for="image" class="form-label">Image of the Product</label>
+                  <div class="image-button" *ngIf="productDetailsForm.get('image')?.value != ''">
+                    <img [src]="productDetailsForm.get('image')?.value">
+                  </div>
+                  <input placeholder="Put the url of the image" *ngIf="productDetailsForm.get('image')?.value == ''" id="image" class="form-control" type="text" [(ngModel)]="imageUrl" [ngModelOptions]="{standalone: true}">
+                  <div class="buttons">
+                    <button (click)="ChangeImageUrl(false)">Clear Image URL</button>
+                    <button class="select" (click)="ChangeImageUrl(true)">Select Image URL</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+        <div class="end-buttons">
+            <button class="cancel" (click)="showDialog = false">Cancel Update</button>
+            <button class="select" (click)="UpdateProduct()">Update Product</button>
+        </div>
+        <span class="error" *ngIf="errorMessage">Please fill all <br> the fields of the form.</span>
+    </div>
+</p-dialog>
