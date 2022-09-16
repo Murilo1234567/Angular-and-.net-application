@@ -6,10 +6,9 @@ namespace Domain.Interfaces
 {
     public interface IBaseService<TEntity> where TEntity : BaseEntity
     {
-        TOutputModel Add<TInputModel, TOutputModel, TValidator>(TInputModel inputModel)
+            TInputModel Add<TInputModel, TValidator>(TInputModel inputModel)
             where TValidator : AbstractValidator<TEntity>
-            where TInputModel : class
-            where TOutputModel : class;
+            where TInputModel : class;
 
         void Delete(int id);
 
@@ -17,9 +16,8 @@ namespace Domain.Interfaces
 
         TOutputModel GetById<TOutputModel>(int id) where TOutputModel : class;
 
-        TOutputModel Update<TInputModel, TOutputModel, TValidator>(TInputModel inputModel)
+        TInputModel Update<TInputModel, TValidator>(TInputModel inputModel)
             where TValidator : AbstractValidator<TEntity>
-            where TInputModel : class
-            where TOutputModel : class;
+            where TInputModel : class;
     }
 }

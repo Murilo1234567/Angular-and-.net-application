@@ -25,7 +25,7 @@ namespace Application.Controllers
             if (Product == null)
                 return NotFound();
 
-            return Execute(() => _baseProductService.Add<ProductModel, ProductModel, ProductValidator>(Product));
+            return Execute(() => _baseProductService.Add<ProductModel, ProductValidator>(Product));
         }
 
         [HttpPut]
@@ -34,7 +34,7 @@ namespace Application.Controllers
             if (Product == null)
                 return NotFound();
 
-            return Execute(() => _baseProductService.Update<ProductModel, ProductModel, ProductValidator>(Product));
+            return Execute(() => _baseProductService.Update<ProductModel, ProductValidator>(Product));
         }
 
         [HttpDelete("{id}")]

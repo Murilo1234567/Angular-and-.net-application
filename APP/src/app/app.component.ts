@@ -14,22 +14,16 @@ export class AppComponent {
   public imageUrl!: string;
 
   public productForm = new UntypedFormGroup({
-    id: new UntypedFormControl(
-      { value: '', disabled: false }
-    ),
     name: new UntypedFormControl(
       { value: '', disabled: false }, Validators.compose([Validators.required])
     ),
     image: new UntypedFormControl(
       { value: '', disabled: false }, Validators.compose([Validators.required])
     ),
-    desc: new UntypedFormControl(
+    description: new UntypedFormControl(
       { value: '', disabled: false }, Validators.compose([Validators.required])
     ),
     stock: new UntypedFormControl(
-      { value: '', disabled: false }, Validators.compose([Validators.required])
-    ),
-    status: new UntypedFormControl(
       { value: '', disabled: false }, Validators.compose([Validators.required])
     ),
     price: new UntypedFormControl(
@@ -52,6 +46,7 @@ export class AppComponent {
     this._httpClient.post('http://localhost:5000/api/Product/Create', this.productForm.value, {headers}).pipe(takeUntil(this.ngUnsubscribe)).subscribe({
       next: (response: any) => {
         this._toastService.addToast('success', 'Success', 'Product created successfully.');
+        this.productForm.reset()
       },
       error: (error: any) => {
         this._toastService.addToast('warning', 'Warning', 'It was not possible to complete the creation of the product.');

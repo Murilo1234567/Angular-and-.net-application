@@ -34,7 +34,7 @@ namespace Application
             service.AddControllers();
 
             /*-------------------------------- DBCONTEXT --------------------------------*/
-            string connectionString = "Server: dbjumpshop.cmarhm2qjxjb.us-east-1.rds.amazonaws.com, Port: 5432, User_Id: dbuser_jump, Password: a1MLC1pKTyDS0l8XESby, Database: dbprod_jumpshop";
+            string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=senha123;Database=localhost";
             service.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
             service.AddScoped<IBaseRepository<Product>, BaseRepository<Product>>();
@@ -42,7 +42,7 @@ namespace Application
 
             service.AddSingleton(new MapperConfiguration(config =>
             {
-                config.CreateMap<Product, ProductModel>();
+                config.CreateMap<ProductModel, Product>();
             }).CreateMapper());
         }
 

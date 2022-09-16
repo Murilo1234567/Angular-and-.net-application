@@ -2,9 +2,6 @@ using AutoMapper;
 using FluentValidation;
 using Domain.Entities;
 using Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Service.Services
 {
@@ -19,19 +16,16 @@ namespace Service.Services
             _mapper = mapper;
         }
 
-        public TOutputModel Add<TInputModel, TOutputModel, TValidator>(TInputModel inputModel)
+        public TInputModel Add<TInputModel, TValidator>(TInputModel inputModel)
             where TValidator : AbstractValidator<TEntity>
             where TInputModel : class
-            where TOutputModel : class
         {
             TEntity entity = _mapper.Map<TEntity>(inputModel);
 
             Validate(entity, Activator.CreateInstance<TValidator>());
             _baseRepository.Insert(entity);
 
-            TOutputModel outputModel = _mapper.Map<TOutputModel>(entity);
-
-            return outputModel;
+            return inputModel;
         }
 
         public void Delete(int id) => _baseRepository.Delete(id);
@@ -54,19 +48,16 @@ namespace Service.Services
             return outputModel;
         }
 
-        public TOutputModel Update<TInputModel, TOutputModel, TValidator>(TInputModel inputModel)
+        public TInputModel Update<TInputModel, TValidator>(TInputModel inputModel)
             where TValidator : AbstractValidator<TEntity>
             where TInputModel : class
-            where TOutputModel : class
         {
             TEntity entity = _mapper.Map<TEntity>(inputModel);
 
             Validate(entity, Activator.CreateInstance<TValidator>());
             _baseRepository.Update(entity);
 
-            TOutputModel outputModel = _mapper.Map<TOutputModel>(entity);
-
-            return outputModel;
+            return inputModel;
         }
 
         private static void Validate(TEntity obj, AbstractValidator<TEntity> validator)

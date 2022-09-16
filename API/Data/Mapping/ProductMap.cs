@@ -26,7 +26,7 @@ namespace Data.Mapping
             builder.Property(prop => prop.Image)
                 .IsRequired()
                 .HasColumnName("Image")
-                .HasColumnType("");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Description)
                 .HasMaxLength(2000)

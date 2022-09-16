@@ -20,7 +20,7 @@
         <h2>Adittional Information</h2>
         <div class="form-group">
           <label for="desc" class="form-label">Description of the Product</label>
-          <textarea id="desc" class="form-control area" formControlName="desc"></textarea>
+          <textarea id="desc" class="form-control area" (onchange)="productForm.get('desc')?.setValue(productForm.get('desc'))" formControlName="description"></textarea>
         </div>
       </div>
       <div class="informations">

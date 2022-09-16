@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PpkdYsocr4X0p+F//QtZyOlC/QXi8MdbLJ9HRr2IHG6BH+HZjXFOF3MbyvHAgT7UNSDfFqyNcG06x7aYqHkG4A==",
+  "dgSpecHash": "5IHw1k+/NL58suHKZQ5HHMI7vSw88BFKK70Ttxtt0lUkri+24x3OvFyal8kkadlNOwBhJnTYK6+LP2r6SHWMIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\musou\\OneDrive\\Documents\\GitHub\\Angular-and-.net-application\\api\\api.csproj",
+  "projectFilePath": "C:\\Users\\musou\\OneDrive\\Documents\\GitHub\\Angular-and-.net-application\\API\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\musou\\.nuget\\packages\\automapper\\8.1.1\\automapper.8.1.1.nupkg.sha512",
     "C:\\Users\\musou\\.nuget\\packages\\fluentvalidation\\9.5.1\\fluentvalidation.9.5.1.nupkg.sha512",

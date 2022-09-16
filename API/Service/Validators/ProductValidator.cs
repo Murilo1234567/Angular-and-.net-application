@@ -19,9 +19,6 @@ namespace Service.Validators
             RuleFor(c => c.Stock).NotEmpty().WithMessage("Please, enter a stock quantity for the product")
                                 .NotNull().WithMessage("Please, enter a stock quantity for the product");
             
-            RuleFor(c => c.Status).NotEmpty().WithMessage("Please, chose a status for the product")
-                                .NotNull().WithMessage("Please, chose a status for the product");
-            
             RuleFor(c => c.Price).NotEmpty().WithMessage("Please, enter a price for the product")
                                 .NotNull().WithMessage("Please, enter a price for the product");
         }
