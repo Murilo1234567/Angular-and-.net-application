@@ -43,6 +43,7 @@ namespace Application
             service.AddSingleton(new MapperConfiguration(config =>
             {
                 config.CreateMap<ProductModel, Product>();
+                config.CreateMap<Product, ProductModel>();
             }).CreateMapper());
         }
 

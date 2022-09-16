@@ -9,12 +9,15 @@ import { AppComponent } from './app.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CreateComponent } from './components/create/create.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { DialogModule } from 'primeng/dialog'
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    CreateComponent
+    CreateComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { AgGridModule } from 'ag-grid-angular';
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
-    AgGridModule
+    AgGridModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
