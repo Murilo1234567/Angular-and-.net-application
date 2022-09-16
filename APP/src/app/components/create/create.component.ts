@@ -12,6 +12,7 @@ export class CreateComponent implements OnInit {
   public ngUnsubscribe = new Subject<void>();
   public imageUrl!: string;
   public errorMessage: boolean = false;
+  public showDialog = false;
 
   public productForm = new UntypedFormGroup({
     name: new UntypedFormControl(
@@ -47,6 +48,7 @@ export class CreateComponent implements OnInit {
         this.productForm.get('image')?.setValue('');
         this.imageUrl = '';
         this.errorMessage = false;
+        this.showDialog = true;
       },
       error: (error: any) => {
         this.errorMessage = true;

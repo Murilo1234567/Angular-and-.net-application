@@ -46,3 +46,15 @@
     </div>
     <span class="error" *ngIf="errorMessage">Please fill all <br> the fields of the form.</span>
   </div>
+
+  <p-dialog [(visible)]="showDialog" [showHeader]="false">
+    <div class="confirmation-card">
+      <div class="dialog-text">
+        <span>Product successfully created!</span>
+      </div>
+      <div class="dialog-buttons">
+        <button class="cancel" (click)="showDialog = false">Create Other Product</button>
+        <button [routerLink]="'products'">See All Products</button>
+      </div>
+    </div>
+  </p-dialog>

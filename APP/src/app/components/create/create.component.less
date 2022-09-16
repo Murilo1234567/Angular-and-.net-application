@@ -102,3 +102,36 @@
         float: right;
     }
 }
+
+.confirmation-card {
+    padding: 30px;
+    .dialog-text {
+        text-align: center;
+        font-size: 22px;
+    }
+    .dialog-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        button {
+            border: none;
+            border-radius: 5px;
+            padding: 13px;
+            cursor: pointer;
+            background-color: rgb(25, 206, 25);
+        }
+    }
+}
+
+::ng-deep {
+    .p-dialog {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: rgb(230, 230, 230);
+        .p-dialog-content {
+            max-height: 85vh;
+            overflow: auto;
+            width: 100%;
+        }
+    }
+}
