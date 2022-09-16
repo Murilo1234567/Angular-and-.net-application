@@ -8,10 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MessageService } from 'primeng/api';
 import { ToastService } from 'src/Services/ToastService';
+import { ProductsComponent } from './components/products/products.component';
+import { CreateComponent } from './components/create/create.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductsComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
