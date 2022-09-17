@@ -1,0 +1,38 @@
+version: '3'
+services:
+  dotnet-server:
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgresql_database
+    container_name: dotnet-api    
+    volumes:
+       - ./api:/usr/src/app/API
+       - /usr/src/app/API/*.csproj
+  postgresql_database:
+    image: postgres:latest
+    container_name: postgresql_database
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=senha123
+      - POSTGRES_DB=localhost
+    expose:
+      - "5432"
+    volumes:
+      - /var/lib/postgresql/data/
+  angular-ui:
+    build:
+      context: ./APP
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    container_name: angular-ui
+    volumes:
+       - ./APP:/usr/src/app/APP
+       - /usr/src/app/APP/node_modules

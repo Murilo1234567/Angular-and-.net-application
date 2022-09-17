@@ -4,6 +4,7 @@ using Domain.Interfaces;
 using Service.Validators;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
+using System.Net;
 
 namespace Application.Controllers
 {
@@ -73,11 +74,11 @@ namespace Application.Controllers
             {
                 var result = func();
 
-                return Ok(result);
+                return StatusCode(200, result);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
     }

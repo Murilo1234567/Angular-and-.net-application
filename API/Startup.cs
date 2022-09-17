@@ -34,7 +34,7 @@ namespace Application
             service.AddControllers();
 
             /*-------------------------------- DBCONTEXT --------------------------------*/
-            string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=senha123;Database=localhost";
+            string connectionString = "Server=postgresql_database;Port=5432;User Id=postgres;Password=senha123;Database=localhost";
             service.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
             service.AddScoped<IBaseRepository<Product>, BaseRepository<Product>>();
@@ -47,8 +47,9 @@ namespace Application
             }).CreateMapper());
         }
 
-        public static void Configure(IApplicationBuilder app, IHostEnvironment env)
+        public static void Configure(IApplicationBuilder app, IHostEnvironment env, ApplicationDbContext dataContext)
         {
+            dataContext.Database.Migrate();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
