@@ -68,4 +68,10 @@ export class CreateComponent implements OnInit {
     }
   }
 
+  CancelCreate()
+  {
+    this.productForm.reset();
+    this.productForm.get('image')?.setValue('');
+    this.imageUrl = '';
+  }
 }
